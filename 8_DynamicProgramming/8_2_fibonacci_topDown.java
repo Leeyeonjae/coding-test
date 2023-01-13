@@ -12,14 +12,14 @@ public class Main
 		int num = scan.nextInt();
 		cacheFibo = new long[num + 1];
 		
-		System.out.println("result = " + fibonicci(num));
+		System.out.println("result = " + fibonacci(num));
 	}
 	
-	public static long fibonicci(int num){
+	public static long fibonacci(int num){
 		if(num <= 2)  return 1;
 		
 		if(cacheFibo[num] == 0){
-			cacheFibo[num] = fibonicci(num -1) + fibonicci(num-2);
+			cacheFibo[num] = fibonacci(num -1) + fibonacci(num-2);
 		}
 		
 		return cacheFibo[num];
