@@ -1,20 +1,19 @@
-import java.util.StringTokenizer;
+import java.util.*;
 
-class Solution {
-    public String solution(String s) {
-        StringBuffer answer = new StringBuffer();
-        StringTokenizer splitedStr = new StringTokenizer(s, " ", true);
+class Solution
+{
+    public int solution(int []A, int []B)
+    {
+        int answer = 0;
         
-        while(splitedStr.hasMoreTokens()){
-            String word = splitedStr.nextToken();
-
-            answer.append(word.substring(0, 1).toUpperCase());
-
-            if(word.length() > 1){
-                answer.append(word.substring(1).toLowerCase());
-            } 
+        //Sort Arrays
+        Arrays.sort(A);
+        Arrays.sort(B);
+        
+        for(int i = 0; i < A.length; i++){
+            answer += A[i] * B[A.length-i-1];
         }
-        
-        return answer.toString();
+
+        return answer;
     }
 }
